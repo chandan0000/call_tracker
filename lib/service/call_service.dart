@@ -28,6 +28,7 @@ class CallService extends ChangeNotifier {
     _isInCall = true;
     _currentCallNumber = phoneNumber;
     _callStartTime = DateTime.now();
+    
     notifyListeners();
   }
 

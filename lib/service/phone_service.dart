@@ -3,7 +3,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:phone_state/phone_state.dart';
 // import 'package:contacts_service/contacts_service.dart';
 // import 'package:call_log/call_log.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+ 
 import 'package:flutter/services.dart';
 
 class CallLogPermission {
@@ -25,7 +25,7 @@ class PhoneService {
   }
 
   static Future<void> makeCall(String phoneNumber) async {
-    await FlutterPhoneDirectCaller.callNumber(phoneNumber);
+    // await FlutterPhoneDirectCaller.callNumber(phoneNumber);
   }
 
   // static Future<List<CallLogEntry>> getCallLogs() async {

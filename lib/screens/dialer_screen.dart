@@ -1,4 +1,5 @@
 // import 'package:contacts_service/contacts_service.dart';
+import 'package:direct_call_plus/direct_call_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:phone_state/phone_state.dart';
 import 'package:provider/provider.dart';
@@ -97,8 +98,16 @@ class _DialerScreenState extends State<DialerScreen> {
           children: [
             TextField(
               controller: _numberController,
-              decoration: const InputDecoration(
+              readOnly: true,
+              onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
+              decoration:  InputDecoration(
                 hintText: 'Enter phone number',
+                border:InputBorder.none,
+                focusedBorder: InputBorder.none,
+                enabledBorder: InputBorder.none,
+                errorBorder: InputBorder.none,
+                disabledBorder: InputBorder.none,
+                suffixIcon:  IconButton(onPressed: () => _numberController.clear(), icon: const Icon(Icons.clear)),
               ),
               keyboardType: TextInputType.phone,
               textAlign: TextAlign.center,
@@ -108,17 +117,20 @@ class _DialerScreenState extends State<DialerScreen> {
             Expanded(child: _buildDialPad()),
             const SizedBox(height: 20),
             FloatingActionButton(
-              onPressed: () {
+              onPressed: () async{
                 if (_numberController.text.isNotEmpty) {
-                  context.read<CallService>().startCall(_numberController.text);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => OutgoingCallScreen(
-                        phoneNumber: _numberController.text,
+                  bool? res = await DirectCallPlus.makeCall(_numberController.text);
+                  if(res!=null && res){
+                    context.read<CallService>().startCall(_numberController.text);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OutgoingCallScreen(
+                          phoneNumber: _numberController.text,
                       ),
                     ),
                   );
+                  }
                 }
               },
               child: const Icon(Icons.call),

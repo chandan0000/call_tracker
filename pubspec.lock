@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  call_e_log:
+    dependency: "direct main"
+    description:
+      name: call_e_log
+      sha256: "4e8ef87330e0b1208fe4e3ca586f45053180c8451d5c5359dc0e6a34951886c4"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.4"
   characters:
     dependency: transitive
     description:
@@ -49,6 +57,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  direct_call_plus:
+    dependency: "direct main"
+    description:
+      name: direct_call_plus
+      sha256: "168d8e09184a5ce00555d6fabf237c759c5f7fe5b1df8d6fdbc46a8513ae8b30"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
   fake_async:
     dependency: transitive
     description:
@@ -70,14 +86,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.0"
-  flutter_phone_direct_caller:
-    dependency: "direct main"
-    description:
-      name: flutter_phone_direct_caller
-      sha256: a50abfb49656d39e777278348742d0d09ecfa5d4918bbc4e0b19df46e8dfd858
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
